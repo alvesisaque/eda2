@@ -10,6 +10,5 @@
 ### Como executar o projeto
 Para executar o projeto, você deve executar o index.html
 ## Capturas de tela
-![print](/docs/img/Captura.png )
 ## Conclusões
 ## Referências

@@ -64,6 +64,7 @@
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="javascript:void(0)">Radix Sort</a>
           </div>
+          
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -75,7 +76,69 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-          <!-- your content here -->
+          <div class="card">
+            <div class="card-header card-header-warning">
+              <h1 class="card-title">Radix Sort</h1>
+            </div>
+            <div class="card-body">
+
+                <h4>“O Radix sort é um algoritmo de ordenação rápido e estável que pode ser usado para ordenar itens que estão 
+                identificados por chaves únicas. Cada chave é uma cadeia de caracteres ou número, e o radix sort ordena 
+                estas chaves em qualquer ordem relacionada com a lexicografia.”</h4> 
+                
+                <h4>Existem duas classificações do radix sort, que são:</h4>
+                
+                <h3>Least significant digit (LSD – Dígito menos significativo)</h3>
+                
+                <h4>O radix sort LSD começa do dígito menos significativo até o mais significativo, ordenando 
+                tipicamente da seguinte forma: chaves curtas vem antes de chaves longas, e chaves de mesmo 
+                tamanho são ordenadas lexicograficamente. Isso coincide com a ordem normal de representação dos 
+                inteiros, como a seqüência "1, 2, 3, 4, 5, 6, 7, 8, 9, 10". Os valores processados pelo algoritmo de 
+                ordenação são frequentemente chamados de “chaves”, que podem existir por si próprias ou associadas a 
+                outros dados. As chaves podem ser strings de caracteres ou números.</h4>
+                
+                <h3>Most significant digit (MSD – Dígito mais significativo)</h3>
+                
+                <h4>Já o radix sort MSD trabalha no sentido contrário, usando sempre a ordem lexicográfica, 
+                que é adequada para ordenação de strings, como palavras, ou representações de inteiros com tamanho fixo. 
+                A seqüência "b, c, d, e, f, g, h, i, j, ba" será ordenada lexicograficamente 
+                como "b, ba, c, d, e, f, g, h, i, j". Se essa ordenação for usada para ordenar representações de 
+                inteiros com tamanho variável, então a representação dos números inteiros de 1 a 10 terá a saída "1, 10, 2, 3, 4, 5, 6, 7, 8, 9".</h4>
+                
+                <h3>Compexidade</h3>
+                
+                <h4>O radix sort LSD opera na notação Big O, em O(nk), onde "n" é o número de chaves, e "k" é o 
+                comprimento médio da chave. É possível garantir esse desempenho para chaves com comprimento variável 
+                agrupando todas as chaves que tem o mesmo comprimento e ordenando separadamente cada grupo de chaves, do 
+                mais curto para o mais comprido, de modo a evitar o processamento de uma lista inteira de chaves em cada 
+                passo da ordenação.</h4>
+                
+                <h3>Referências:</h3>
+                <h4>https://pt.wikipedia.org/wiki/Radix_sort</h4>
+                <h4>https://www.geeksforgeeks.org/radix-sort/</h4>
+                <h4>https://www.conhecimentogeral.inf.br/radix_sort/</h4>
+                
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header card-header-warning">
+              <h1 class="card-title">Heap</h1>
+            </div>
+            <div class="card-body">
+
+                
+                
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header card-header-warning">
+              <h1 class="card-title">Arvore Vermelho e Preto</h1>
+            </div>
+            <div class="card-body">
+
+                
+                
+            </div>
         </div>
       </div>
       <footer class="footer">
