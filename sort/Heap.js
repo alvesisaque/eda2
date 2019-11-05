@@ -1,18 +1,17 @@
-// Constructor for Heap
+// Construtor
 function Heap() {
   this.list = [];
 }
            
 Heap.prototype = {
-  // Add a new object into the heap
+  // Adiciona um novo objeto 
   add: function(e) {
-    this.list.push(e); // Append to the heap
-    var currentIndex = this.list.length - 1; // The index of the last node
+    this.list.push(e);
+    var currentIndex = this.list.length - 1; // Index do ultimo nó
 
     while (currentIndex > 0) {
       var parentIndex = Math.floor((currentIndex - 1) / 2);
       
-      // Swap if the current object is greater than its parent
       if (this.list[currentIndex] > this.list[parentIndex]) {
         var temp = this.list[currentIndex];
         this.list[currentIndex] = this.list[parentIndex];
@@ -20,11 +19,11 @@ Heap.prototype = {
         currentIndex = parentIndex;
       }
       else 
-        break; // the tree is a heap now
+        break;
     }
   },
       
-  // Remove the root from the heap 
+  // Remova a raiz da pilha
   remove: function() {
     if (this.list.length == 0) return null;
 
@@ -37,8 +36,7 @@ Heap.prototype = {
       var leftChildIndex = 2 * currentIndex + 1;
       var rightChildIndex = 2 * currentIndex + 2;
 
-      // Find the maximum between two children
-      if (leftChildIndex >= this.list.length) break; // The tree is a heap
+      if (leftChildIndex >= this.list.length) break;
       var maxIndex = leftChildIndex;
       if (rightChildIndex < this.list.length) {
         if (this.list[maxIndex] < this.list[rightChildIndex]) {
@@ -46,7 +44,6 @@ Heap.prototype = {
         }
       }
 
-      // Swap if the current node is less than the maximum
       if (this.list[currentIndex] < this.list[maxIndex]) {
         var temp = this.list[maxIndex];
         this.list[maxIndex] = this.list[currentIndex];
@@ -54,7 +51,7 @@ Heap.prototype = {
         currentIndex = maxIndex;
       }
       else
-        break; // The tree is a heap
+        break;
     }
 
     return removedObject;

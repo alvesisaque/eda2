@@ -11,7 +11,7 @@ var canvas = document.getElementById('canvas');
 var context = canvas.getContext("2d");
 
 // Reset size will clear the canvas, but not for IE9
-canvas.width = window.innerWidth - 20;
+canvas.width = window.innerWidth - 400;
 canvas.height = window.innerHeight - 180;        
 context.clearRect(0, 0, canvas.width, canvas.height); // For IE 9
 

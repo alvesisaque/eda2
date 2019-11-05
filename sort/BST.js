@@ -4,9 +4,9 @@ function BST() {
     this.size = 0;
 }
 
-// Returns true if the element is in the tree
+// Retorna true se o elemento estiver na árvore
 BST.prototype.search = function(e) {
-    var current = this.root; // Start from the root
+    var current = this.root;
 
     while (current != null) {
         if (e < current.element) {
@@ -15,26 +15,25 @@ BST.prototype.search = function(e) {
         else if (e > current.element) {
             current = current.right;
         }
-        else // element matches current.element
-            return true; // Element is found
+        else
+            return true;
     }
 
     return false;
 }
 
-// Constructor for Node
+// Construtor do nó
 function TreeNode(e) {
     this.element = e;
     this.left = null;
     this.right = null;
 }
 
-// Insert a new element e
+// Insere elemento
 BST.prototype.insert = function(e) {
     if (this.root == null)
-        this.root = this.createNewNode(e); // Create a new root
+        this.root = this.createNewNode(e);
     else {
-        // Locate the parent node
         var parent = null;
         var current = this.root;
         while (current != null)
@@ -47,9 +46,8 @@ BST.prototype.insert = function(e) {
                 current = current.right;
             }
             else
-                return false; // Duplicate node not inserted
+                return false;
 
-        // Create the new node and attach it to the parent node
         if (e < parent.element) {
             parent.left = this.createNewNode(e);
         }
@@ -59,19 +57,15 @@ BST.prototype.insert = function(e) {
     }
 
     this.size++;
-    return true; // Element inserted
+    return true;
 }
 
 BST.prototype.createNewNode = function(e) {
     return new TreeNode(e);
 }
 
-/** Delete an element from the binary tree.
- * Return true if the element is deleted successfully
- * Return false if the element is not in the tree
- */
+//Deleta elemento
 BST.prototype.remove = function(e) {
-    // Locate the node to be deleted and also locate its parent node
     var parent = null;
     var current = this.root;
     while (current != null) {
@@ -84,15 +78,14 @@ BST.prototype.remove = function(e) {
             current = current.right;
         }
         else
-            break; // Element is in the tree pointed at by current
+            break;
     }
 
     if (current == null)
-        return false; // Element is not in the tree
+        return false;
 
-    // Case 1: current has no left children
+    // Caso 1: verifica se tem filhos
     if (current.left == null) {
-        // Connect the parent with the right child of the current node
         if (parent == null) {
             root = current.right;
         }
@@ -104,49 +97,43 @@ BST.prototype.remove = function(e) {
         }
     }
     else {
-        // Case 2: The current node has a left child
-        // Locate the rightmost node in the left subtree of
-        // the current node and also its parent
+        // Case 2: O nó atual tem um filho esquerdo
         var parentOfRightMost = current;
         var rightMost = current.left;
 
         while (rightMost.right != null) {
             parentOfRightMost = rightMost;
-            rightMost = rightMost.right; // Keep going to the right
+            rightMost = rightMost.right;
         }
 
-        // Replace the element in current by the element in rightMost
         current.element = rightMost.element;
-
-        // Eliminate rightmost node
         if (parentOfRightMost.right == rightMost)
             parentOfRightMost.right = rightMost.left;
         else
-            // Special case: parentOfRightMost == current
             parentOfRightMost.left = rightMost.left;
     }
 
     this.size--;
-    return true; // Element inserted
+    return true;
 }
 
-// Return true if the tree is empty 
+// Retorna true se a árvore estiver vazia 
 BST.prototype.isEmpty = function() {
     return this.root == null;
 }
 
-// Return the size of the tree 
+// Tamanho da arvore 
 BST.prototype.getSize = function() {
     return this.size;
 }
 
-// Returns a path from the root leading to the specified element 
+// Retorna um caminho da raiz que leva ao elemento especificado
 BST.prototype.path = function(e) {
     list = [];
-    var current = this.root; // Start from the root
+    var current = this.root;
 
     while (current != null) {
-        list.push(current); // Add the node to the list
+        list.push(current);
         if (e < current.element) {
             current = current.left;
         }
@@ -157,7 +144,7 @@ BST.prototype.path = function(e) {
             break;
     }
 
-    return list; // Return an array of nodes
+    return list;
 }
 
 BST.prototype.getRoot = function() {

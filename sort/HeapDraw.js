@@ -6,13 +6,12 @@ function draw() {
 	var canvas = document.getElementById('canvas');
 	var context = canvas.getContext("2d");
 
-	// Reset size will clear the canvas, but not for IE9
-	canvas.width = window.innerWidth - 20;
+	canvas.width = window.innerWidth - 400;
 	canvas.height = window.innerHeight - 180;        
-	context.clearRect(0, 0, canvas.width, canvas.height); // For IE 9
+	context.clearRect(0, 0, canvas.width, canvas.height);
 
 	context.font = "14px sans-serif";
-	context.strokeStyle = "#100"; // Set a pen color
+	context.strokeStyle = "#100";
 
 	if (heap.isEmpty()) {
 		//context.fillText("heap is empty", canvas.width / 2 - 50, 15);  
@@ -26,9 +25,8 @@ function draw() {
 		
 	context.stroke();
 }
-
+// Desenha a arvore
 function drawTree(context, x, y, radius, i, hGap) {
-	// Draw the node list[i]
 	context.fillText(heap.list[i] + "", x - 5, y + 5);  
 	context.arc(x, y, radius, 0, Math.PI * 2, false);    
 		
@@ -45,7 +43,7 @@ function drawTree(context, x, y, radius, i, hGap) {
 	}
 }
 
-// Connect two circles centered at (x1, y1) and (x2, y2) 
+// Conecta dois círculos centralizados em (x1, y1) e (x2, y2)
 function connectTwoCircles(context, x1, y1, x2, y2) {
 	var d = Math.sqrt(vGap * vGap + (x2 - x1) * (x2 - x1));
 	var x11 = x1 - radius * (x1 - x2) / d;
@@ -83,23 +81,20 @@ function drawArrowLine(context, x1, y1, x2, y2) {
 	context.moveTo(x1, y1);
 	context.lineTo(x2, y2);
 
-	// find slope of this line
+	// encontre a inclinação desta linha
 	var slope = (y1 - y2) / (x1 - x2);
 
 	var arctan = Math.atan(slope);
 
-	// This will flip the arrow 45 off of a
-	// perpendicular line at pt x2
 	var set45 = 1.57 / 2;
 
-	// arrows should always point towards i, not i+1
 	if (x1 < x2) {
-		// add 90 degrees to arrow lines
+		// adiciona 90 graus às linhas das setas
 		set45 = -1.57 * 1.5;
 	}
 
-	// set length of arrows
-	var arrlen = 15;
+	// definir o comprimento das setas
+	var arrlen = 10;
 
 	// draw arrows on line
 	context.moveTo(x2, y2);
